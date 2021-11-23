@@ -7,15 +7,7 @@
                 <h1 class="text-white font-fold text-4xl">Domina la tecnologia web con Learn<b>it</b></h1>
                 <p class="text-white text-lg mt-2 mb-4">En Learnit encontras cursos, talleres, seminarios y otros que te ayudaran en tu formacion academica</p>
             
-                <div class="pt-2 relative mx-auto text-gray-600">
-                    <input class="w-full border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
-                    type="search" name="search" placeholder="Search">
-
-                    <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded absolute right-0 top-0 mt-2">
-                        Buscar
-                    </button>
-                    
-                </div>
+                @livewire('search')
 
             </div>            
         </div>
@@ -74,7 +66,7 @@
         <h1 class="text-center text-white text-3xl">¿No sabes qué curso llevar?</h1>
         <p class="text-center text-white">Dirígete al catálogo de cursos y filtralos por categorias o etiquetas.</p>
         <div class="flex justify-center mt-4">
-            <a href="{{route('courses.index')}}" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">
+            <a href="{{route('courses.index')}}" class="btn btn-warning font-bold py-2 px-4 ">
                 Catálogo de cursos
             </a>
         </div>
