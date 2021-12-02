@@ -16,7 +16,7 @@
 
     <div class="card">
         <div class="card-header">
-            <a href="{{route('admin.roles.create')}}">Crear Rol</a>
+            <a class="btn btn-success" href="{{route('admin.roles.create')}}"><i class="fas fa-plus mr-2"></i>Nuevo rol</a>
         </div>
 
         <div class="card-body">
@@ -34,14 +34,14 @@
                             <td>{{$role->id}}</td>
                             <td>{{$role->name}}</td>
                             <td width="10px">
-                                <a class="btn btn-secondary" href="{{route('admin.roles.edit', $role)}}">Editar</a>
+                                <a class="btn btn-success" href="{{route('admin.roles.edit', $role)}}"><i class="far fa-edit"></i></a>
                             </td>
 
                             <td width="10px">
                                 <form action="{{route('admin.roles.destroy', $role)}}" method="POST">
                                 @method('delete')
                                 @csrf
-                                <button class="btn btn-danger">Eliminar</button>
+                                <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
                                 </form>
                             </td>
                         </tr>

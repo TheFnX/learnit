@@ -3,7 +3,7 @@
 
         <div class="px-6 py-4 flex text-center">
             {{-- <input wire:keydown="clean_page" wire:model="search" class="form-input w-full shadow-sm" placeholder="Ingrese el nombre de un curso..."> --}}
-            <input wire:keydown="clean_page" wire:model="search" class="form-input flex-1 shadow-sm rounded px-4 border-2 border-green-500" placeholder="Ingrese el nombre de un curso...">
+            <input wire:keydown="clean_page" wire:model="search" class="flex-1 shadow-sm px-4 border-2 border-green-300 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50 rounded-md" placeholder="Ingrese el nombre de un curso...">
             <a class="btn btn-success ml-2" href="{{route('instructor.courses.create')}}">Nuevo Curso</a>
         
         </div>

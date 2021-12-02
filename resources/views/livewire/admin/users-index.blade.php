@@ -20,7 +20,7 @@
                                 <td>{{$user->name}}</td>
                                 <td>{{$user->email}}</td>
                                 <td width="10px">
-                                    <a class="btn btn-primary" href="{{route('admin.users.edit', $user)}}">Editar</a>
+                                    <a class="btn btn-success" href="{{route('admin.users.edit', $user)}}">Editar</a>
                                 </td>
                             </tr>
                         @endforeach
