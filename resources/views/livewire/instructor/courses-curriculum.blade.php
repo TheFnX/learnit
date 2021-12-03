@@ -1,7 +1,4 @@
-<div>
-    <x-slot name="course">
-        {{$course->slug}}
-    </x-slot>
+<div>    
     <h1 class="text-2xl font-bold">Temario del Curso</h1>
     <hr class="mt-2 mb-6">
     @foreach ($course->sections as $item)

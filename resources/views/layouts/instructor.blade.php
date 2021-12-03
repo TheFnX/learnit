@@ -40,7 +40,7 @@
             <div class="container py-8 grid grid-cols-5">
                 <aside>
                     <h1 class="font-bold text-lg mb-4">Edición del curso</h1>
-                    <ul class="text-sm text-gray-600">
+                    <ul class="text-sm text-gray-600 mb-4">
                         <li class="leading-7 mb-1 border-l-4 @routeIs('instructor.courses.edit', $course) border-green-400 @else border-transparent @endif pl-2">
                             <a href="{{route('instructor.courses.edit', $course)}}">Información del Curso</a>
                         </li>
@@ -53,7 +53,30 @@
                         <li class="leading-7 mb-1 border-l-4 @routeIs('instructor.courses.students', $course) border-green-400 @else border-transparent @endif pl-2">
                             <a href="{{route('instructor.courses.students', $course)}}">Interesados</a>
                         </li>
+                        @if ($course->observation)
+                            <li class="leading-7 mb-1 border-l-4 @routeIs('instructor.courses.observation', $course) border-green-400 @else border-transparent @endif pl-2">
+                                <a href="{{route('instructor.courses.observation', $course)}}">Observaciones</a>
+                            </li>
+                        @endif
                     </ul>
+
+                    @switch($course->status)
+                        @case(1)
+                            <form action="{{route('instructor.courses.status', $course)}}" method="POST">
+                                @csrf
+                                <button class="btn btn-danger" type="submit">Solicitar revisión</button>
+                            </form>
+                            @break
+                        @case(2)    
+                            <button class="btn btn-warning cursor-not-allowed" type="submit">En revisión</button>
+                            @break
+                        @case(3)
+                            <button class="btn btn-success cursor-not-allowed" type="submit">Publicado</button>
+                            @break
+                        @default
+                            
+                    @endswitch
+                    
                 </aside>
         
                 <div class="col-span-4 card">
