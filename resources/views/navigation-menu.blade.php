@@ -1,7 +1,7 @@
 @php
     $nav_links = [
         [
-            'name' => 'Home',
+            'name' => 'Inicio',
             'route' => route('home'),
             'active' => request()->routeIs('home')
         ],
@@ -126,7 +126,7 @@
 
                                 @can('Ver dashboard')
                                     <x-jet-dropdown-link href="{{ route('admin.home') }}">
-                                        {{ __('Dashboard') }}
+                                        {{ __('Administrador') }}
                                     </x-jet-dropdown-link>
                                 @endcan
                                 
@@ -153,8 +153,8 @@
                             </x-slot>
                         </x-jet-dropdown>                            
                     @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
-                        <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>                        
+                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Ingresar</a>
+                        <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Registrarse</a>                        
                     @endauth                    
                 </div>
 
@@ -215,7 +215,7 @@
 
                     @can('Ver dashboard')
                         <x-jet-responsive-nav-link href="{{ route('admin.home') }}" :active="request()->routeIs('admin.home')">
-                            Dashboard
+                            Administrador
                         </x-jet-responsive-nav-link>     
                     @endcan                  
                    
@@ -273,10 +273,10 @@
         @else
             <div class="py-1 border-t border-gray-200">
                 <x-jet-responsive-nav-link href="{{ route('login') }}" :active="request()->routeIs('login')">
-                    Login
+                    Ingresar
                 </x-jet-responsive-nav-link>
                 <x-jet-responsive-nav-link href="{{ route('register') }}" :active="request()->routeIs('register')">
-                    Register
+                    Registrarse
                 </x-jet-responsive-nav-link>
             </div>
         @endauth

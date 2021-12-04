@@ -231,19 +231,19 @@ return [
         //     'text'         => 'search',
         //     'topnav_right' => true,
         // ],
-        [
-            'type'          => 'navbar-notification' ,
-             'id'            => 'my-notification' ,
-             'icon'          => 'fas fa-bell' ,
-             'url'           => '' ,
-             'topnav_right' => true ,
-             'dropdown_mode'    => true ,
-             'dropdown_flabel' => 'Todas las notificaciones' ,
-             'update_cfg'    => [
-                 'url' => 'notificaciones / recibir',
-                 'período' => 30 ,
-            ],
-        ],
+        // [
+        //     'type'          => 'navbar-notification' ,
+        //      'id'            => 'my-notification' ,
+        //      'icon'          => 'fas fa-bell' ,
+        //      'url'           => '' ,
+        //      'topnav_right' => true ,
+        //      'dropdown_mode'    => true ,
+        //      'dropdown_flabel' => 'Todas las notificaciones' ,
+        //      'update_cfg'    => [
+        //          'url' => 'notificaciones / recibir',
+        //          'período' => 30 ,
+        //     ],
+        // ],
         [
             'type'         => 'fullscreen-widget',
             'topnav_right' => true,
@@ -259,12 +259,12 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
-        [
-            'text'  => 'Dashboard',
-            'route' => 'admin.home',
-            'icon'  => 'fas fa-fw fa-tachometer-alt',
-            'can'   => 'Ver dashboard'
-        ],
+        // [
+        //     'text'  => 'Dashboard',
+        //     'route' => 'admin.home',
+        //     'icon'  => 'fas fa-fw fa-tachometer-alt',
+        //     'can'   => 'Ver dashboard'
+        // ],
         [
             'text'   => 'Lista de Roles',
             'route'  => 'admin.roles.index',
@@ -281,69 +281,84 @@ return [
         ],
         ['header' => 'OPCIONES DE CURSOS'],
         [
-            'text' => 'Pendientes',
+            'text' => 'Categorías',
+            'route'  => 'admin.categories.index',
+            'icon' => 'fas fa-fw fa-cogs',
+        ],
+        [
+            'text' => 'Niveles',
+            'url'  => 'admin/settings',
+            'icon' => 'fas fa-fw fa-sort-amount-up',
+        ],
+        [
+            'text' => 'Niveles',
+            'url'  => 'admin/settings',
+            'icon' => 'fas fa-fw fa-tags',
+        ],
+        [
+            'text' => 'Pendientes de Aprobación',
             'route'  => 'admin.courses.index',
             'icon' => 'fas fa-marker',
-        ],
-        [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-        [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
-            'submenu' => [
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-            ],
-        ],
-        ['header' => 'labels'],
-        [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
-            'url'        => '#',
-        ],
+        ],        
+    //     [
+    //         'text' => 'change_password',
+    //         'url'  => 'admin/settings',
+    //         'icon' => 'fas fa-fw fa-lock',
+    //     ],
+    //     [
+    //         'text'    => 'multilevel',
+    //         'icon'    => 'fas fa-fw fa-share',
+    //         'submenu' => [
+    //             [
+    //                 'text' => 'level_one',
+    //                 'url'  => '#',
+    //             ],
+    //             [
+    //                 'text'    => 'level_one',
+    //                 'url'     => '#',
+    //                 'submenu' => [
+    //                     [
+    //                         'text' => 'level_two',
+    //                         'url'  => '#',
+    //                     ],
+    //                     [
+    //                         'text'    => 'level_two',
+    //                         'url'     => '#',
+    //                         'submenu' => [
+    //                             [
+    //                                 'text' => 'level_three',
+    //                                 'url'  => '#',
+    //                             ],
+    //                             [
+    //                                 'text' => 'level_three',
+    //                                 'url'  => '#',
+    //                             ],
+    //                         ],
+    //                     ],
+    //                 ],
+    //             ],
+    //             [
+    //                 'text' => 'level_one',
+    //                 'url'  => '#',
+    //             ],
+    //         ],
+    //     ],
+    //     ['header' => 'labels'],
+    //     [
+    //         'text'       => 'important',
+    //         'icon_color' => 'red',
+    //         'url'        => '#',
+    //     ],
+    //     [
+    //         'text'       => 'warning',
+    //         'icon_color' => 'yellow',
+    //         'url'        => '#',
+    //     ],
+    //     [
+    //         'text'       => 'information',
+    //         'icon_color' => 'cyan',
+    //         'url'        => '#',
+    //     ],
     ],
 
     /*
