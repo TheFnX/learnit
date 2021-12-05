@@ -284,11 +284,13 @@ return [
             'text' => 'Categorías',
             'route'  => 'admin.categories.index',
             'icon' => 'fas fa-fw fa-cogs',
+            'active' => ['admin/categories*']
         ],
         [
             'text' => 'Niveles',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-sort-amount-up',
+            'route'  => 'admin.levels.index',
+            'icon' => 'fas fa-fw fa-sort-amount-up',            
+            'active' => ['admin/levels*']
         ],
         [
             'text' => 'Niveles',
