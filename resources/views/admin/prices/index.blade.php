@@ -3,8 +3,8 @@
 @section('title', 'Learnit')
 
 @section('content_header')
-    <a class="btn btn-success btn-sm float-right" href="{{route('admin.levels.create')}}"><i class="fas fa-plus mr-2"></i>Nuevo Nivel</a>
-    <h1>Lista de niveles</h1>
+    <a class="btn btn-success btn-sm float-right" href="{{route('admin.prices.create')}}"><i class="fas fa-plus mr-2"></i>Nuevo Precio</a> 
+    <h1>Lista de precios</h1>
 @stop
 
 @section('content')
@@ -24,15 +24,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($levels as $level)
+                    @foreach ($prices as $price)
                         <tr>
-                            <td>{{$level->id}}</td>
-                            <td>{{$level->name}}</td>
+                            <td>{{$price->id}}</td>
+                            <td>{{$price->name}}</td>
                             <td width="10px">
-                                <a class="btn btn-success" href="{{route('admin.levels.edit', $level)}}"><i class="far fa-edit"></i></a>
+                                <a class="btn btn-success" href="{{route('admin.prices.edit', $price)}}"><i class="far fa-edit"></i></a>
                             </td>
                             <td width="10px">
-                                <form action="{{route('admin.levels.destroy', $level)}}" method="POST">
+                                <form action="{{route('admin.prices.destroy', $price)}}" method="POST">
                                 @csrf
                                 @method('delete')
                                 <button class="btn btn-danger" type="submit"><i class="far fa-trash-alt"></i></button>

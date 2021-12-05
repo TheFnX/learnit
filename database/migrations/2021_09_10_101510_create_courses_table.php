@@ -19,10 +19,13 @@ class CreateCoursesTable extends Migration
             $table->id();
 
             $table->string('title');
-            $table->string('subtitle');
+            $table->string('subtitle')->nullable();
             $table->text('description');
             $table->enum('status', [Course::BORRADOR, Course::REVISION, Course::PUBLICADO])->default(Course::BORRADOR);
             $table->string('slug');
+            $table->date('date')->nullable();
+            $table->string('price')->nullable();
+            $table->string('time')->nullable();
 
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('level_id')->nullable();

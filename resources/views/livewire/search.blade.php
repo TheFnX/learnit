@@ -7,7 +7,7 @@
     </button>
 
     @if ($search)
-        <ul class="absolute z-50 left-0 w-full bg-white mt-1 rounded-lg ">
+        <ul class="absolute z-50 left-0 w-full bg-white mt-1 rounded-lg">
             @forelse ($this->results as $result)
                 <li class="leading-10 px-5 text-sm cursor-pointer hover:bg-green-300">
                     <a href="{{route('courses.show', $result)}}">{{$result->title}}</a>    

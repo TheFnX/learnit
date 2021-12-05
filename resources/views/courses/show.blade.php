@@ -190,7 +190,7 @@
             </section>
 
             <section class="mb-8">
-                <h1 class="font-bold text-3xl mb-2">Temario</h1>
+                <h1 class="font-bold text-3xl mb-2 text-gray-800">Temario</h1>
                 @foreach ($course->sections as $section)
                     <article class="mb-4 shadow"
                         @if ($loop->first)
@@ -213,7 +213,7 @@
             </section>
 
             <section class="mb-8">
-                <h1 class="font-bold text-3xl mb-2">Requisitos</h1>
+                <h1 class="font-bold text-3xl mb-2 text-gray-800">Requisitos</h1>
                 <ul class="list-disc list-inside">
                     @foreach ($course->requirements as $requirement)
                         <li class="text-gray-700 text-base">{{$requirement->name}}</li>
@@ -221,12 +221,16 @@
                 </ul>
             </section>
 
+
             <section class="mb-8">
-                <h1 class="font-bold text-3xl mb-2">Descripción</h1>
+                <h1 class="font-bold text-3xl mb-2 text-gray-800">Descripción</h1>
                 <div class="text-gray-700 text-base">
                     {!!$course->description!!}
                 </div>
             </section>
+
+            @livewire('courses-reviews', ['course' => $course])
+
         </div>
 
         <div class="order-1 lg:order-2">

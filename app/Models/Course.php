@@ -77,8 +77,12 @@ class Course extends Model
     }
 
      //Relacion muchos a muchos
-     public function students(){
+    public function students(){
         return $this->belongsToMany('App\Models\User');
+    }
+
+    public function tags(){
+        return $this->belongsToMany('App\Models\Tag');
     }
 
     //Relacion uno a uno polimorfica

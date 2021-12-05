@@ -19,6 +19,26 @@
         </div>
 
         <!-- Delete User Confirmation Modal -->
+        <x-jet-dialog-modal wire:model="confirmingUserDeletion">
+            <x-slot name="title" class="text-aling-ceter">
+                {{ __('Enviar Solicitud') }}
+            </x-slot> 
+            <x-slot name="content">
+                {{ __('¿Está seguro que desea enviar la solicitud? Una vez que sea aprobada podrás crear y publicar la información referente a eventos academicos.') }}
+              
+            </x-slot>
+ 
+            <x-slot name="footer">
+                <x-jet-secondary-button class="ml-2" wire:click="$toggle('confirmingUserDeletion')" wire:loading.attr="disabled">
+                    {{ __('Enviar') }}
+                </x-jet-secondary-button>
+                <x-jet-danger-button wire:click="$toggle('confirmingUserDeletion')" wire:loading.attr="disabled">
+                    {{ __('Cancel') }}
+                </x-jet-danger-button>                
+            </x-slot>
+        </x-jet-dialog-modal>
+
+        <!-- Delete User Confirmation Modal -->
         {{-- <x-jet-dialog-modal wire:model="confirmingUserDeletion">
             <x-slot name="title">
                 {{ __('Delete Account') }}
