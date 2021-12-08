@@ -31,6 +31,6 @@ class ApprovedCourse extends Mailable
     public function build()
     {
         return $this->view('mail.approved-course')
-                    ->subject('LearnIt: Curso Aprobado');
+                    ->subject('LearnIt: Solicitud Aprobada');
     }
 }

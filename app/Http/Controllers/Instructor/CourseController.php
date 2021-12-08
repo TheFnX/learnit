@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Course;
 use App\Models\Level;
 use App\Models\Price;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -41,9 +42,11 @@ class CourseController extends Controller
     public function create()
     {
         $categories = Category::pluck('name', 'id');
+        $tags = Tag::all();
         $levels = Level::pluck('name', 'id');
         $prices = Price::pluck('name', 'id');
-        return view('instructor.courses.create', compact('categories', 'levels', 'prices'));
+
+        return view('instructor.courses.create', compact('categories', 'levels', 'prices', 'tags'));
     }
 
     /**
@@ -67,6 +70,10 @@ class CourseController extends Controller
         ]);
 
         $course = Course::create($request->all());
+
+        if($request->tags){
+            $course->tags()->attach($request->tags);
+        }
 
         if($request->file('file')){
             $url = Storage::put('public/courses', $request->file('file'));     
@@ -99,9 +106,10 @@ class CourseController extends Controller
     {
         $this->authorize('dictated', $course);
         $categories = Category::pluck('name', 'id');
+        $tags = Tag::all();
         $levels = Level::pluck('name', 'id');
         $prices = Price::pluck('name', 'id');
-        return view('instructor.courses.edit', compact('course', 'categories', 'levels', 'prices'));
+        return view('instructor.courses.edit', compact('course', 'categories', 'levels', 'prices', 'tags'));
     }
 
     /**
@@ -127,7 +135,7 @@ class CourseController extends Controller
             'file' => 'image'
         ]);
         
-        $course->update($request->all());
+        $course->update($request->all());        
 
         if ($request->file('file')) {
             $url = Storage::put('public/courses', $request->file('file'));
@@ -142,6 +150,10 @@ class CourseController extends Controller
                     'url' => $url
                 ]);
             }
+        }
+
+        if($request->tags){
+            $course->tags()->sync($request->tags);
         }
 
         return redirect()->route('instructor.courses.edit', $course);

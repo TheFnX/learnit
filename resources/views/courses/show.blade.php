@@ -8,11 +8,15 @@
             <div class="text-gray-800">
                 <h1 class="text-4xl">{{$course->title}}</h1>
                 <h2 class="text-xl mb-3">{{$course->subtitle}}</h2>
-                <p class="mb-2"><i class="fas fa-money-bill-wave"></i> Precio: {{$course->price}} Bs.</p> 
+                @if ($course->price == 0)
+                    <p class="mb-2"><i class="fas fa-money-bill-wave"></i> Precio: Gratuito</p>            
+                @else
+                    <p class="my-2 text-gray-500 font-bold"> Precio: {{$course->price}} Bs.</p>  
+                @endif
                 <p class="mb-2"><i class="far fa-calendar-alt"></i> Fecha: {{ \Carbon\Carbon::parse($course->date)->format('d/m/Y')}}</p> 
                 <p class="mb-2"><i class="far fa-clock"></i> Hora: {{$course->time}}</p> 
                 <p class="mb-2"><i class="fas fa-chart-line"></i> Nivel: {{$course->level->name}}</p>
-                <p class="mb-2"><i class=""></i> Categoria: {{$course->category->name}}</p>
+                <p class="mb-2"><i class="far fa-folder-open"></i> Categoria: {{$course->category->name}}</p>
                 <p class="mb-2"><i class="fas fa-users"></i> Interesados: {{$course->students_count}}</p>
                 <p class="mb-2"><i class="far fa-star"></i> Calificación: {{$course->rating}}</p>
             </div>

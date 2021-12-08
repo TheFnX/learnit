@@ -87,17 +87,17 @@
              <!-- Dropdown Etiquetas --> 
              <div class="relative mr-4" x-data={open:false}>
                 <button class="px-4 text-gray-700 block h-12 rounded-lg overflow-hidden focus:outline-none bg-white shadow" x-on:click="open = true">                   
-                    <i class="fas fa-tags text-sm mr-2"></i>
-                    Etiquetas
+                    <i class="fas fa-layer-group text-sm mr-2"></i>
+                    Etiqueta
                     <i class="fas fa-angle-down text-sm ml-2"></i>
                 </button>
                 <div class="absolute right-0 w-40 mt-2 py-2 bg-white border rounded shadow-xl" x-show="open" x-on:click.away="open = false">   
-                @foreach ($levels as $level)
-                <a class="cursor-pointer transition-colors duration-200 block px-4 py-2 text-normal text-gray-900 rounded hover:bg-green-500 hover:text-white">Etiquetas</a>                    
+                @foreach ($tags as $tag)
+                <a class="cursor-pointer transition-colors duration-200 block px-4 py-2 text-normal text-gray-900 rounded hover:bg-green-500 hover:text-white" wire:click="$set('tag_id', {{$tag->id}})" x-on:click="open = false">{{$tag->name}}</a>                    
                     
                 @endforeach
                 </div>
-            </div>  
+            </div>   
         </div>
     </div>
 

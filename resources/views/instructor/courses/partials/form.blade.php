@@ -51,6 +51,21 @@
         @enderror
     </div> 
 </div>
+<div class="form-group">
+    <hr class="border-2 green-500 mt-2 mb-2">
+    <p class="font-weight-bold">Etiquetas</p>
+    @foreach ($tags as $tag)
+    <label class="mr-2">
+        {!! Form::checkbox('tags[]', $tag->id, null, ['class' => 'form-checkbox text-green-500']) !!}
+        {{$tag->name}}
+    </label>
+    @endforeach
+    <hr class="border-2 green-500 mt-2 mb-2">
+    {{-- @error('tags')
+        <small class="text-danger">{{$message}}</small>
+    @enderror --}}
+</div>
+
 <div class="grid grid-cols-2 gap-4">
     <div class="mb-4">
         {!! Form::label('level_id', 'Nivel:') !!}
@@ -58,7 +73,7 @@
     </div>
     <div class="mb-4">
         {!! Form::label('category_id', 'Categoría:') !!}
-        {!! Form::select('category_id', $categories, null, ['class' => 'input block w-full shadow-sm']) !!}
+        {!! Form::select('category_id', $categories, null, ['class' => 'input block w-full shadow-sm ']) !!}
     </div>    
 </div>
 

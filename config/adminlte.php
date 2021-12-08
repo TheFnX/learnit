@@ -293,10 +293,10 @@ return [
             'active' => ['admin/levels*']
         ],
         [
-            'text' => 'Precios',
-            'route'  => 'admin.prices.index',
-            'icon' => 'fas fa-fw fa-hand-holding-usd',
-            'active' => ['admin/prices*']
+            'text' => 'Etiquetas',
+            'route'  => 'admin.tags.index',
+            'icon' => 'fas fa-fw fa-tags',
+            'active' => ['admin/tags*']
         ],
         [
             'text' => 'Pendientes de Aprobación',

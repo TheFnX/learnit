@@ -342,9 +342,9 @@ ul.social li{
             	<tr>
             		<td>
             			<div class="text" style="padding: 0 2.5em; text-align: center;">
-            				<h2>El evento: {{$course->title}}</h2>
-                            <p>Fue revisado y aprobado correctamente</p>
-            				<h3>El evento que creaste ya se encuentra publicado!</h3>
+            				<h2>Tu solicitud fue revisada.</h2>
+            				<h3>Bienvenido a LearnIt!</h3>
+							<p>Ya puedes crear y publicar diferentes eventos academicos</p>
             				<p><a href="{{route('courses.index')}}" class="btn btn-primary">Ir al sitio web</a></p>
             			</div>
             		</td>
