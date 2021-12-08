@@ -57,10 +57,12 @@ class CourseController extends Controller
         $request->validate([
             'title' => 'required',
             'slug' => 'required|unique:courses',
-            'subtitle' => 'required',
             'category_id' => 'required',
+            'date' => 'required',
+            'time' => 'required',
+            'price' => 'required',
             'level_id' => 'required',
-            'price_id' => 'required',
+            'price_id' => 'nullable',
             'file' => 'image'
         ]);
 
@@ -116,10 +118,12 @@ class CourseController extends Controller
         $request->validate([
             'title' => 'required',
             'slug' => 'required|unique:courses,slug,' . $course->id,
-            'subtitle' => 'required',
+            'date' => 'required',
+            'time' => 'required',
+            'price' => 'required',
             'category_id' => 'required',
             'level_id' => 'required',
-            'price_id' => 'required',
+            'price_id' => 'nullable',
             'file' => 'image'
         ]);
         

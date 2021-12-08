@@ -15,15 +15,39 @@ class CategorySeeder extends Seeder
     public function run()
     {
         Category::create([
-            'name' => 'Desarrollo web'
+            'name' => 'Coloquio'
+        ]);
+        
+        Category::create([
+            'name' => 'Conferencia'
         ]);
 
         Category::create([
-            'name' => 'Diseño web'
+            'name' => 'Congreso'
+        ]);
+        
+        Category::create([
+            'name' => 'Convención'
         ]);
 
         Category::create([
-            'name' => 'Programacion'
+            'name' => 'Foro'
+        ]);
+
+        Category::create([
+            'name' => 'Seminario'
+        ]);
+        
+        Category::create([
+            'name' => 'Simposio'
+        ]);
+
+        Category::create([
+            'name' => 'Taller'
+        ]);
+
+        Category::create([
+            'name' => 'Webinar'
         ]);
     }
 }

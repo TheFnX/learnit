@@ -1,7 +1,8 @@
 <section>
     <h1 class="text-2xl font-bold">Requerimientos del curso</h1>
+    <p>Describe si existe algún requerimiento previo para el evento.</p>
     <hr class="mt-2 mb-6">
-
+    
     @foreach ($course->requirements as $item)
         <article class="card mb-4">
             <div class="card-body bg-gray-100">
@@ -28,13 +29,13 @@
     <article class="card">
         <div class="card-body bg-gray-100">
             <form wire:submit.prevent="store">
-                <input wire:model="name" class="w-full px-4 border-2 border-green-300 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50 rounded-md" placeholder="Agregar el nombre del requerimientos">
+                <input wire:model="name" class="w-full px-4 border-2 border-green-300 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50 rounded-md" placeholder="Agregar requerimiento">
                 @error('name')
                             <span class="text-xs text-red-500">{{$message}}</span>
                         @enderror
                 
                 <div class="flex justify-end mt-2">
-                    <button type="submit" class="btn btn-success">Agregar requerimientos</button>
+                    <button type="submit" class="btn btn-success">Guardar</button>
                 </div>
             </form>
         </div>

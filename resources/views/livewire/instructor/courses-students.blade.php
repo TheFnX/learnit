@@ -5,7 +5,7 @@
 
         <div class="px-6 py-4 text-center">
             {{-- <input wire:keydown="clean_page" wire:model="search" class="form-input w-full shadow-sm" placeholder="Ingrese el nombre de un curso..."> --}}
-            <input wire:model="search" class="flex-1 w-full shadow-sm px-4 border-2 border-green-300 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50 rounded-md" placeholder="Ingrese el nombre de un curso...">
+            <input wire:model="search" class="flex-1 w-full shadow-sm px-4 border-2 border-green-300 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50 rounded-md" placeholder="Ingrese nombre...">
                     
         </div>
         @if ($students->count())
@@ -17,7 +17,10 @@
                         </th>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         Email
-                        </th>                       
+                        </th>   
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Celular
+                        </th>                     
                         <th scope="col" class="relative px-6 py-3">
                         <span class="sr-only">Editar</span>
                         </th>
@@ -41,10 +44,13 @@
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="text-sm text-gray-900">{{$student->email}}</div>
-                            </td>                           
+                            </td> 
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm text-gray-900">{{$student->phone}}</div>
+                            </td>                          
                             
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-large">                                
-                                <i class="fab fa-whatsapp text-green-500 cursor-pointer"></i>   
+                                <a href="https://api.whatsapp.com/send?phone=[+591][{{$student->phone}}]&text=Necesitas mas información!" class="btn btn-success"><i class="fab fa-whatsapp"></i></a>                                
                             </td>
                         </tr> 
                     @endforeach          

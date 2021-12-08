@@ -12,13 +12,13 @@
         <strong class="text-xs text-red-600">{{$message}}</strong>
     @enderror
 </div>                
-<div class="mb-4">
+{{-- <div class="mb-4">
     {!! Form::label('subtitle', 'Subtítulo del curso') !!}
     {!! Form::text('subtitle', null, ['class' => 'input w-full shadow-sm' . ($errors->has('subtitle') ? ' border-red-600' : ' border-green-500')]) !!}
     @error('subtitle')
         <strong class="text-xs text-red-600">{{$message}}</strong>
     @enderror
-</div>
+</div> --}}
 <div class="mb-4">
     {!! Form::label('description', 'Descripción del curso') !!}
     {!! Form::textarea('description', null, ['class' => 'input w-full shadow-sm' . ($errors->has('description') ? ' border-red-600' : ' border-green-500')]) !!}
@@ -26,19 +26,40 @@
     <strong class="text-xs text-red-600">{{$message}}</strong>
 @enderror
 </div>
-<div class="grid grid-cols-3 gap-4">
-    <div>
-        {!! Form::label('category_id', 'Categoría:') !!}
-        {!! Form::select('category_id', $categories, null, ['class' => 'input block w-full shadow-sm']) !!}
+<div class="grid grid-cols-2 gap-4">
+    <div class="mb-4">
+        {!! Form::label('date', 'Fecha') !!}
+        {!! Form::date('date', \Carbon\Carbon::now(), ['class' => 'input w-full shadow-sm' . ($errors->has('date') ? ' border-red-600' : ' border-green-500')]) !!}
+        @error('date')
+            <strong class="text-xs text-red-600">{{$message}}</strong>
+        @enderror
     </div>
-    <div>
+    <div class="mb-4">
+        {!! Form::label('time', 'Hora') !!}
+        {!! Form::time('time', \Carbon\Carbon::now(), ['class' => 'input w-full shadow-sm' . ($errors->has('time') ? ' border-red-600' : ' border-green-500')]) !!}
+        @error('time')
+            <strong class="text-xs text-red-600">{{$message}}</strong>
+        @enderror
+    </div>  
+</div>
+<div class="grid grid-cols-2 gap-4">
+    <div class="mb-4">
+        {!! Form::label('price', 'Precio:') !!}
+        {!! Form::number('price', null, ['class' => 'input w-full shadow-sm', 'placeholder' => 'Si el evento es gratuito ingrese 0', 'min=0' ]) !!}
+        @error('price')
+            <strong class="text-xs text-red-600">{{$message}}</strong>
+        @enderror
+    </div> 
+</div>
+<div class="grid grid-cols-2 gap-4">
+    <div class="mb-4">
         {!! Form::label('level_id', 'Nivel:') !!}
         {!! Form::select('level_id', $levels, null, ['class' => 'input block w-full shadow-sm']) !!}
     </div>
-    <div>
-        {!! Form::label('price_id', 'Precio:') !!}
-        {!! Form::select('price_id', $prices, null, ['class' => 'input block w-full shadow-sm']) !!}
-    </div>
+    <div class="mb-4">
+        {!! Form::label('category_id', 'Categoría:') !!}
+        {!! Form::select('category_id', $categories, null, ['class' => 'input block w-full shadow-sm']) !!}
+    </div>    
 </div>
 
 <h1 class="text-2xl font-bold mt-8 mb-2">Imagen del curso</h1>

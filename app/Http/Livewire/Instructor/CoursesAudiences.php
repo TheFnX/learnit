@@ -12,7 +12,7 @@ class CoursesAudiences extends Component
     public $course, $audience, $name;
 
     protected $rules = [
-        'audience.name' => 'required'
+        'audience.name' => 'nullable'
     ];
 
     public function mount(Course $course){
@@ -29,7 +29,7 @@ class CoursesAudiences extends Component
     public function store(){
 
         $this->validate([
-            'name' => 'required'
+            'name' => 'nullable'
         ]);
 
         $this->course->audiences()->create([

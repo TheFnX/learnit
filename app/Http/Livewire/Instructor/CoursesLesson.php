@@ -9,7 +9,7 @@ use Livewire\Component;
 
 class CoursesLesson extends Component
 {
-    public $section, $lesson, $platforms, $name, $platform_id = 1, $url;
+    public $section, $lesson, $platforms, $name, $platform_id = 1, $url = 'https://www.youtube.com/watch?v=BCKyxci4-1A';
 
     protected $rules = [
         'lesson.name' => 'required',

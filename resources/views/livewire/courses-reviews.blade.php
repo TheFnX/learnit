@@ -3,7 +3,7 @@
 
     <div class="card">
         <div class="card-body">            
-            <p class="text-gray-800">{{$course->reviews->count()}} Valoraciones</p>
+            {{-- <p class="text-gray-800">{{$course->reviews->count()}} Valoraciones</p> --}}
 
             @foreach ($course->reviews as $review)
                 <article class="flex mb-4 text-gray-800">
@@ -13,7 +13,7 @@
 
                     <div class="card flex-1">
                         <div class="card-body bg-gray-100">
-                            <p><b>{{$review->user->name}}</b><i class="fas fa-star text-yellow-300"></i>({{$review->rating}})</p>
+                            <p><b>{{$review->user->name}}</b><i class="fas fa-star text-yellow-300 ml-5"></i>({{$review->rating}})</p>
                             {{$review->comment}}
                         </div>
                     </div>
@@ -32,7 +32,7 @@
                         <h2 class="px-4 pt-3 pb-2 text-gray-800 text-lg">Agregar nuevo comentario</h2>
                         <div class="w-full md:w-full px-3 mb-2 mt-2">
 
-                            <textarea wire:model="comment" class="bg-gray-100 w-full px-4 border-2 border-green-300 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50 rounded-md" name="body" placeholder='Escribe tu comentario' required></textarea>
+                            <textarea wire:model="comment" class="bg-gray-100 w-full px-4 border-2 border-green-300 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50 rounded-md" name="body" placeholder='Tu opinión nos importa y nos ayuda a mejorar, dejanos tu valoración y un comentario' required></textarea>
                         </div>
                         <div>             
                             <div class="flex justify-end mb-4">

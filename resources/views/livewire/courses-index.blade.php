@@ -1,3 +1,51 @@
+{{-- <section class="mt-16">
+    <h1 class="text-gray-600 text-center text-3xl mb-6">Contenido</h1>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-8">
+        <article>
+            <figure>
+                <img class="rounded-xl h-36 w-full object-cover" src="{{asset('img/content01.jpg')}}">
+            </figure>
+
+            <header class="mt-2">
+                <h1 class="text-center text-xl text-gray-700"> Talleres</h1>
+            </header>
+            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa tenetur temporibus odio illum sapiente.</p>
+        </article>
+        <article>
+            <figure>
+                <img class="rounded-xl h-36 w-full object-cover" src="{{asset('img/content02.jpg')}}">
+            </figure>
+
+            <header class="mt-2">
+                <h1 class="text-center text-xl text-gray-700"> Seminarios</h1>
+            </header>
+            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa tenetur temporibus odio illum sapiente.</p>
+        </article>
+        <article>
+            <figure>
+                <img class="rounded-xl h-36 w-full object-cover" src="{{asset('img/content03.png')}}">
+            </figure>
+
+            <header class="mt-2">
+                <h1 class="text-center text-xl text-gray-700"> Conferencias</h1>
+            </header>
+            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa tenetur temporibus odio illum sapiente.</p>
+        </article>
+        <article>
+            <figure>
+                <img class="rounded-xl h-36 w-full object-cover" src="{{asset('img/content04.jpg')}}">
+            </figure>
+
+            <header class="mt-2">
+                <h1 class="text-center text-xl text-gray-700"> Cursos</h1>
+            </header>
+            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa tenetur temporibus odio illum sapiente.</p>
+        </article>
+
+    </div>
+
+</section> --}}
 <div>
     <div class="bg-gray-200 py-4 mb-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex">
@@ -62,4 +110,6 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-4 mb-8">
         {{$courses->links()}}
     </div>
+    <br>
 </div>
+

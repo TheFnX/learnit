@@ -17,10 +17,10 @@
     <!-- Primary Navigation Menu -->
     <div class="container">
         <div class="flex justify-between h-16">
-            <div class="flex">
+            <div class="flex ">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="{{ route('home') }}">
+                    <a href="{{ route('home') }}" >
                         <x-jet-application-mark class="block h-9 w-auto" />
                     </a>
                 </div>
@@ -28,7 +28,7 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     @foreach ($nav_links as $nav_link)                        
-                        <x-jet-nav-link href="{{ $nav_link['route'] }}" :active="$nav_link['active']">
+                        <x-jet-nav-link href="{{ $nav_link['route'] }}" :active="$nav_link['active']" class="">
                             {{ $nav_link['name'] }}
                         </x-jet-nav-link>
                     @endforeach
@@ -153,8 +153,8 @@
                             </x-slot>
                         </x-jet-dropdown>                            
                     @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Ingresar</a>
-                        <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Registrarse</a>                        
+                        <a href="{{ route('login') }}" class="text-green-500 hover:bg-green-500 hover:text-white px-3 py-2 rounded-md text-sm font-medium mr-2">Ingresar</a>
+                        <a href="{{ route('register') }}" class="text-green-500 hover:bg-green-500 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Registrarse</a>                        
                     @endauth                    
                 </div>
 

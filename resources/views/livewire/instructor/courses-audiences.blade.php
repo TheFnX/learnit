@@ -1,4 +1,4 @@
-<section>
+{{-- <section>
     <h1 class="text-2xl font-bold">Audiencia del curso</h1>
     <hr class="mt-2 mb-6">
 
@@ -39,4 +39,4 @@
             </form>
         </div>
     </article>
-</section>
+</section> --}}

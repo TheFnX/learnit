@@ -2,7 +2,7 @@
     <div class="container py-8">
         <div class="card">
             <div class="card-body">
-                <h1 class="text-2xl font-bold">Crear nuevo curso</h1>
+                <h1 class="text-2xl font-bold">Crear Nuevo Evento</h1>
                 <hr class="mt-2 mb-6">
                 {!! Form::open(['route' => 'instructor.courses.store', 'files' => true, 'autocomplete' => 'off']) !!}
                     

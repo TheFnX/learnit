@@ -11,6 +11,7 @@
                         <th>Id</th>
                         <th>Nombre</th>
                         <th>Email</th>
+                        <th>Celular</th>
                         <th></th>
                     </thead>
                     <tbody>
@@ -19,6 +20,7 @@
                                 <td>{{$user->id}}</td>
                                 <td>{{$user->name}}</td>
                                 <td>{{$user->email}}</td>
+                                <td>{{$user->phone}}</td>
                                 <td width="10px">
                                     <a class="btn btn-success" href="{{route('admin.users.edit', $user)}}">Editar</a>
                                 </td>
