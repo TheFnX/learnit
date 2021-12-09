@@ -11,7 +11,7 @@
     @error('slug')
         <strong class="text-xs text-red-600">{{$message}}</strong>
     @enderror
-</div>                
+</div>
 {{-- <div class="mb-4">
     {!! Form::label('subtitle', 'Subtítulo del curso') !!}
     {!! Form::text('subtitle', null, ['class' => 'input w-full shadow-sm' . ($errors->has('subtitle') ? ' border-red-600' : ' border-green-500')]) !!}
@@ -40,7 +40,7 @@
         @error('time')
             <strong class="text-xs text-red-600">{{$message}}</strong>
         @enderror
-    </div>  
+    </div>
 </div>
 <div class="grid grid-cols-2 gap-4">
     <div class="mb-4">
@@ -49,7 +49,7 @@
         @error('price')
             <strong class="text-xs text-red-600">{{$message}}</strong>
         @enderror
-    </div> 
+    </div>
 </div>
 <div class="form-group">
     <hr class="border-2 green-500 mt-2 mb-2">
@@ -74,7 +74,7 @@
     <div class="mb-4">
         {!! Form::label('category_id', 'Categoría:') !!}
         {!! Form::select('category_id', $categories, null, ['class' => 'input block w-full shadow-sm ']) !!}
-    </div>    
+    </div>
 </div>
 
 <h1 class="text-2xl font-bold mt-8 mb-2">Imagen del curso</h1>
@@ -82,8 +82,8 @@
 <div class="grid grid-cols-2 gap-4">
     <figure>
         @isset($course->image)
-            <img id="picture" class="w-full h-full object-cover object-center" src="{{Storage::url($course->image->url)}}" alt="">            
-        @else 
+            <img id="picture" class="w-full h-full object-cover object-center"  src="/{{$course->image->url}}" alt="">
+        @else
             <img id="picture" class="w-full h-full object-cover object-center"  src="https://cdn.pixabay.com/photo/2018/05/19/00/53/online-3412473_960_720.jpg" alt="">
         @endisset
     </figure>

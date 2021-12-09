@@ -8,6 +8,7 @@ use App\Models\Course;
 use App\Models\Level;
 use App\Models\Price;
 use App\Models\Tag;
+use Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -71,15 +72,30 @@ class CourseController extends Controller
 
         $course = Course::create($request->all());
 
-        if($request->tags){
-            $course->tags()->attach($request->tags);
-        }
+        if ($request->file != null) {
+            $data = $request->file;
 
-        if($request->file('file')){
-            $url = Storage::put('public/courses', $request->file('file'));     
-            $course->image()->create([
-                'url' => $url
-            ]);   
+            $file = file_get_contents($request->file);
+            $info = $data->getClientOriginalExtension();
+            $extension = explode('img/courses', mime_content_type('img/courses'))[0];
+            $image = Image::make($file);
+            $fileName = rand(0, 10) . "-" . date('his') . "-" . rand(0, 10) . "." . $info;
+            $path  = 'img/courses';
+            if (!file_exists($path)) {
+                mkdir($path, 0777, true);
+            }
+            $img = $path . '/' . $fileName;
+
+            if ($image->save($img)) {
+                $requestData['file'] = $img;
+                $course = Course::create($request->all());
+                $course->image()->create([
+                    'url' => $img
+                ]);
+                // $mensaje = "Producto Registrado correctamente";
+            } else {
+                // $mensaje = "Error al guardar la imagen";
+            }
         }
         return redirect()->route('instructor.courses.edit', $course);
 
@@ -134,8 +150,8 @@ class CourseController extends Controller
             'price_id' => 'nullable',
             'file' => 'image'
         ]);
-        
-        $course->update($request->all());        
+
+        $course->update($request->all());
 
         if ($request->file('file')) {
             $url = Storage::put('public/courses', $request->file('file'));
@@ -178,7 +194,7 @@ class CourseController extends Controller
     }
 
     public function status(Course $course)
-    {  
+    {
         $course->status = 2;
         $course->save();
 

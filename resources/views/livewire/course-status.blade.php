@@ -5,42 +5,42 @@
             <h1 class="mb-4 text-2xl font-medium text-center text-gray-900 lg:text-3xl">{{$course->title}}</h1>
             {{-- <h1 class="font-bold text-2xl mb-2 mt-2 text-center items-center">{{$course->title}}</h1>   --}}
                 <figure>
-                    <img class="h-full w-full object-cover" src="{{Storage::url($course->image->url)}}" alt="">
-                </figure>         
+                    <img class="h-full w-full object-cover"  src="/{{$course->image->url}}" alt="">
+                </figure>
         </div>
 
         <div class="lg:w-1/3 lg:mt-4">
             <form action="">
                 <div class="lg:grid lg:gap-1 lg:grid-cols-1">
                     <div class="card">
-                        <div class="card-body">                
+                        <div class="card-body">
                             <div class="flex items-center">
                                 <figure>
                                     <img class="h-12 w-12 object-cover rounded-full mr-4" src="{{$course->teacher->profile_photo_url}}" alt="">
                                 </figure>
                                 <div>
-                                    <p>{{$course->teacher->name}}</p>                        
+                                    <p>{{$course->teacher->name}}</p>
                                     @if ($course->teacher->phone)
                                         <div class="text-gray-600">
-                                            <a href="https://api.whatsapp.com/send?phone=[+591][{{$course->teacher->phone}}]&text=Estoy interesado!" class="text-green-500"><i class="fab fa-whatsapp"></i></a>                            
+                                            <a href="https://api.whatsapp.com/send?phone=[+591][{{$course->teacher->phone}}]&text=Estoy interesado!" class="text-green-500"><i class="fab fa-whatsapp"></i></a>
                                         </div>
-                                    @endif   
+                                    @endif
                                 </div>
-                            
-        
+
+
                                     {{-- <a class="text-blue-500 text-sm" href="">{{'@' . Str::slug($course->teacher->name, '')}}</a> --}}
                                 </div>
                             </div>
                             <hr class="mb-2 border-green-500">
-        
+
                             {{-- <p class="text-gray-600 text-sm mt-2">{{$this->advance . '%'}} Completado</p> --}}
-        
+
                             {{-- <div class="relative pt-1">
                                 <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-gray-200">
                                 <div style="width:{{$this->advance . '%'}}" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-500 transition-all duration-500"></div>
                                 </div>
                             </div> --}}
-        
+
                             <ul>
                                 @foreach ($course->sections as $section)
                                     <li class="text-gray-600 mb-4 ml-4 mr-4">
@@ -52,38 +52,38 @@
                                                         @if ($lesson->completed)
                                                             @if ($current->id == $lesson->id)
                                                                 <span class="inline-block w-4 h-4 border-2 border-yellow-300 rounded-full mr-2 mt-1"></span>
-                                                            @else 
+                                                            @else
                                                                 <span class="inline-block w-4 h-4 bg-yellow-300 rounded-full mr-2 mt-1"></span>
                                                             @endif
-        
-                                                        @else  
+
+                                                        @else
                                                             @if ($current->id == $lesson->id)
-                                                            <span class="inline-block w-4 h-4 bg-green-500 rounded-full mr-2 mt-1"></span>     
-        
+                                                            <span class="inline-block w-4 h-4 bg-green-500 rounded-full mr-2 mt-1"></span>
+
                                                             @else
-                                                            <span class="inline-block w-4 h-4 border-2 border-green-500 rounded-full mr-2 mt-1"></span> 
-        
+                                                            <span class="inline-block w-4 h-4 border-2 border-green-500 rounded-full mr-2 mt-1"></span>
+
                                                             @endif
                                                         @endif
                                                     </div>
-                                                    <a class="cursor-pointer" wire:click="changeLesson({{$lesson}})">{{$lesson->name}}</a>                                           
-                                                </li>                              
+                                                    <a class="cursor-pointer" wire:click="changeLesson({{$lesson}})">{{$lesson->name}}</a>
+                                                </li>
                                             @endforeach
                                         </ul>
-                                        
+
                                     </li>
                                 @endforeach
                             </ul>
                         </div>
                         <div class="card-body">
-                            @if ($current->resource)                
+                            @if ($current->resource)
                                 <div class="flex items-center text-red-600 cursor-pointer" wire:click="download">
                                 <i class="fas fa-download text-lg"></i>
-                                <p class="text-sm ml-2">Descargar recursos</p>                
+                                <p class="text-sm ml-2">Descargar recursos</p>
                             @endif
                         </div>
-                    </div>   
-                </div>  
+                    </div>
+                </div>
             </form>
             {{-- <div class="mt-4 rounded-lg">
                 <h3>Ads</h3>
@@ -96,11 +96,11 @@
 
 {{-- <div class="container mt-8">
     <section class="card mb-8 ml-8 mr-8">
-        
-            <h1 class="font-bold text-2xl mb-2 mt-2 text-center items-center">{{$course->title}}</h1>           
-        
+
+            <h1 class="font-bold text-2xl mb-2 mt-2 text-center items-center">{{$course->title}}</h1>
+
     </section>
-    
+
     <div class="container grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div class="lg:col-span-2">
             <div class="embed-responsive">
@@ -141,10 +141,10 @@
             <div class="card mt-2">
                 <div class="card-body flex text-gray-500 font-bold">
                     @if ($this->previous)
-                        <a wire:click="changeLesson({{$this->previous}})" class="cursor-pointer">Tema anterior</a>                        
+                        <a wire:click="changeLesson({{$this->previous}})" class="cursor-pointer">Tema anterior</a>
                     @endif
                     @if ($this->next)
-                        <a wire:click="changeLesson({{$this->next}})" class="ml-auto cursor-pointer">Siguiente tema</a>                        
+                        <a wire:click="changeLesson({{$this->next}})" class="ml-auto cursor-pointer">Siguiente tema</a>
                     @endif
 
                 </div>
@@ -161,20 +161,20 @@
         </div>
         <section>
             <div class="card">
-                <div class="card-body">                
+                <div class="card-body">
                     <div class="flex items-center">
                         <figure>
                             <img class="h-12 w-12 object-cover rounded-full mr-4" src="{{$course->teacher->profile_photo_url}}" alt="">
                         </figure>
                         <div>
-                            <p>{{$course->teacher->name}}</p>                        
+                            <p>{{$course->teacher->name}}</p>
                             @if ($course->teacher->phone)
                                 <div class="text-gray-600">
-                                    <a href="https://api.whatsapp.com/send?phone=[+591][{{$course->teacher->phone}}]&text=Estoy interesado!" class="text-green-500"><i class="fab fa-whatsapp"></i></a>                            
+                                    <a href="https://api.whatsapp.com/send?phone=[+591][{{$course->teacher->phone}}]&text=Estoy interesado!" class="text-green-500"><i class="fab fa-whatsapp"></i></a>
                                 </div>
-                            @endif   
+                            @endif
                         </div>
-                    
+
 
                             <a class="text-blue-500 text-sm" href="">{{'@' . Str::slug($course->teacher->name, '')}}</a>
                         </div>
@@ -200,37 +200,37 @@
                                                 @if ($lesson->completed)
                                                     @if ($current->id == $lesson->id)
                                                         <span class="inline-block w-4 h-4 border-2 border-yellow-300 rounded-full mr-2 mt-1"></span>
-                                                    @else 
+                                                    @else
                                                         <span class="inline-block w-4 h-4 bg-yellow-300 rounded-full mr-2 mt-1"></span>
                                                     @endif
 
-                                                @else  
+                                                @else
                                                     @if ($current->id == $lesson->id)
-                                                    <span class="inline-block w-4 h-4 bg-green-500 rounded-full mr-2 mt-1"></span>     
+                                                    <span class="inline-block w-4 h-4 bg-green-500 rounded-full mr-2 mt-1"></span>
 
                                                     @else
-                                                    <span class="inline-block w-4 h-4 border-2 border-green-500 rounded-full mr-2 mt-1"></span> 
+                                                    <span class="inline-block w-4 h-4 border-2 border-green-500 rounded-full mr-2 mt-1"></span>
 
                                                     @endif
                                                 @endif
                                             </div>
-                                            <a class="cursor-pointer" wire:click="changeLesson({{$lesson}})">{{$lesson->name}}</a>                                           
-                                        </li>                              
+                                            <a class="cursor-pointer" wire:click="changeLesson({{$lesson}})">{{$lesson->name}}</a>
+                                        </li>
                                     @endforeach
                                 </ul>
-                                
+
                             </li>
                         @endforeach
                     </ul>
                 </div>
                 <div class="card-body">
-                    @if ($current->resource)                
+                    @if ($current->resource)
                         <div class="flex items-center text-red-600 cursor-pointer" wire:click="download">
                         <i class="fas fa-download text-lg"></i>
-                        <p class="text-sm ml-2">Descargar recursos</p>                
+                        <p class="text-sm ml-2">Descargar recursos</p>
                     @endif
                 </div>
-            </div>         
+            </div>
         </section>
     </div>
 </div> --}}
